@@ -1,0 +1,71 @@
+pipeline {
+    agent any
+
+    environment {
+        userName = ""
+        contra = "Contraseni4t3mp0rAl"
+    }
+    
+    stages {
+        stage('Crear usuario.') {
+            steps {
+                echo "Ingrese el nombre del usuario: "
+                read nombre
+
+                echo "Ingrese el apellido del usuario: "
+                read apellido
+
+                env.userName =  $nombre + $apellido
+
+                echo -e "Ingrese departamento:\n 1-contabilidad\n 2-finanzas\n 3-tecnologia"
+                read depto
+                
+                // El bucle comprueba si el numero ingresado es valido, si no, vuelve a pedir que sea ingresado
+
+                while[ 1>= $depto >=  3 ];do
+                    echo -e "Por favor ingrese de nuevo una opcion"
+                    read depto
+                done
+                
+                switch($depto){
+                case 1:
+                    grupo = "contabilidad"
+                    break
+                case 2:
+                    grupo = "finanzas"
+                    break
+                case 3:
+                    grupo = "tecnologia"
+                    break
+                }
+
+                sudo useradd -p env.contra -g $grupo $userName
+
+            }
+        }
+
+        stage('Crear password temporal') {
+            steps {
+                // Aquí colocarías los comandos de construcción de tu proyecto
+                // Por ejemplo:
+                // sh 'mvn clean install'
+                sudo passwd -e env.userName
+                echo env.contra
+                
+            }
+        }
+           
+       
+    }
+    
+ /*   post {
+        success {
+            // Acciones a ejecutar si el pipeline es exitoso
+            echo '¡El pipeline se ejecutó exitosamente!'
+        }
+        failure {
+            // Acciones a ejecutar si el pipeline falla
+            echo '¡El pipeline falló!'
+        }
+    }*/
+}
