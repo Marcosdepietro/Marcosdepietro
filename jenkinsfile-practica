@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-    environment {
+    parameters {
         userName = ""
         contra = "Contraseni4t3mp0rAl"
     }
@@ -9,38 +9,40 @@ pipeline {
     stages {
         stage('Crear usuario.') {
             steps {
-                echo "Ingrese el nombre del usuario: "
-                read nombre
+                script{
+                    echo "Ingrese el nombre del usuario: "
+                    read nombre
 
-                echo "Ingrese el apellido del usuario: "
-                read apellido
+                    echo "Ingrese el apellido del usuario: "
+                    read apellido
 
-                env.userName =  $nombre + $apellido
+                    env.userName =  $nombre + $apellido
 
-                echo -e "Ingrese departamento:\n 1-contabilidad\n 2-finanzas\n 3-tecnologia"
-                read depto
-                
-                // El bucle comprueba si el numero ingresado es valido, si no, vuelve a pedir que sea ingresado
-
-                while[ 1>= $depto >=  3 ];do
-                    echo -e "Por favor ingrese de nuevo una opcion"
+                    echo -e "Ingrese departamento:\n 1-contabilidad\n 2-finanzas\n 3-tecnologia"
                     read depto
-                done
-                
-                switch($depto){
-                case 1:
-                    grupo = "contabilidad"
-                    break
-                case 2:
-                    grupo = "finanzas"
-                    break
-                case 3:
-                    grupo = "tecnologia"
-                    break
-                }
 
-                sudo useradd -p env.contra -g $grupo $userName
+                    // El bucle comprueba si el numero ingresado es valido, si no, vuelve a pedir que sea ingresado
 
+                    while[ 1>= $depto >=  3 ];do
+                        echo -e "Por favor ingrese de nuevo una opcion"
+                        read depto
+                    done
+
+                    switch($depto){
+                    case 1:
+                        grupo = "contabilidad"
+                        break
+                    case 2:
+                        grupo = "finanzas"
+                        break
+                    case 3:
+                        grupo = "tecnologia"
+                        break
+                    }
+
+                     sudo useradd -p env.contra -g $grupo $userName
+
+                 }
             }
         }
 
