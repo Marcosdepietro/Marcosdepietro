@@ -1,0 +1,1 @@
+echo "Random number between 1 and 10: $((RANDOM % 10 + 1))"
