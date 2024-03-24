@@ -40,7 +40,7 @@ pipeline {
                         break
                     }*/
 
-                        env.USER_NAME =  $nombreUser + $apellidoUser
+                        env.USER_NAME =  ${params.nombreUser} + ${params.apellidoUser}
 
                      //   sudo useradd -p env.contra -g $grupo $nombreUser
 
