@@ -7,7 +7,7 @@ pipeline {
         choice(name: 'depto', choices: ['contabilidad', 'finanzas', 'tecnologia'], description: '1-contabilidad 2-finanzas 3-tecnologia')
     }
     
-    enviroment{
+    environment{
 
         USER_NAME
     }
