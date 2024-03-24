@@ -45,13 +45,14 @@ pipeline {
 
         stage('Crear password temporal') {
             steps {
+                script{
                 // Aquí colocarías los comandos de construcción de tu proyecto
                 // Por ejemplo:
                 // sh 'mvn clean install'
                 //sudo passwd -e params.nombreUser
                 def contra = "Contraseni4t3mp0rAl"
                 echo " Muestro user: ${params.nombreUser}! Muestro Contra: ${contra}! Muestro grupo: ${params.grupo}! " 
-                
+                 }  
             }
         }
            
