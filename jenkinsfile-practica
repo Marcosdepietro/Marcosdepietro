@@ -49,7 +49,7 @@ pipeline {
                 // Por ejemplo:
                 // sh 'mvn clean install'
                 //sudo passwd -e params.nombreUser
-                contra = "Contraseni4t3mp0rAl"
+                def contra = "Contraseni4t3mp0rAl"
                 echo " Muestro user: ${params.nombreUser}! Muestro Contra: ${contra}! Muestro grupo: ${params.grupo}! " 
                 
             }
