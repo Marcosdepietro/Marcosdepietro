@@ -9,7 +9,7 @@ pipeline {
     
     environment{
 
-        USER_NAME
+        USER_NAME = ""
     }
 
     stages {
