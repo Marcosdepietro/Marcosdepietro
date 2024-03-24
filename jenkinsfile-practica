@@ -5,7 +5,7 @@ pipeline {
         string(name: 'nombreUser', defaultValue: '', description: 'Ingrese el nombre del usuario: ')
         string(name: 'apellidoUser', defaultValue: '', description: 'Ingrese el apellido del usuario: ')
         choice(name: 'depto', choices: ['contabilidad', 'finanzas', 'tecnologia'], description: '1-contabilidad 2-finanzas 3-tecnologia')
-        contra = "Contraseni4t3mp0rAl"
+        contra: "Contraseni4t3mp0rAl"
     }
     
     stages {
