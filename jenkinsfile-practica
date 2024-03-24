@@ -7,6 +7,11 @@ pipeline {
         choice(name: 'depto', choices: ['contabilidad', 'finanzas', 'tecnologia'], description: '1-contabilidad 2-finanzas 3-tecnologia')
     }
     
+    enviroment{
+
+        USER_NAME
+    }
+
     stages {
         stage('Crear usuario.') {
             steps {
@@ -35,7 +40,7 @@ pipeline {
                         break
                     }*/
 
-                        params.nombreUser =  $nombre + $apellidoUser
+                        env.USER_NAME =  $nombreUser + $apellidoUser
 
                      //   sudo useradd -p env.contra -g $grupo $nombreUser
 
@@ -51,7 +56,7 @@ pipeline {
                 // sh 'mvn clean install'
                 //sudo passwd -e params.nombreUser
                 def contra = "Contraseni4t3mp0rAl"
-                echo " Muestro user: ${params.nombreUser}! Muestro Contra: ${contra}! Muestro grupo: ${params.grupo}! " 
+                echo " Muestro user: ${env.USER_NAME}! Muestro Contra: ${contra}! Muestro grupo: ${params.grupo}! " 
                  }  
             }
         }
