@@ -13,66 +13,16 @@ pipeline {
     }
 
     stages {
-        stage('Crear usuario.') {
-            steps {
-                script{
-                   /* echo "Ingrese el nombre del usuario: "
-                    read nombre
-
-                    echo "Ingrese el apellido del usuario: "
-                    read apellido
-
-                    
-
-                    echo -e "Ingrese departamento:\n 1-contabilidad\n 2-finanzas\n 3-tecnologia"
-                    read depto
-                    */
-
-                    /*switch($depto){
-                    case 1:
-                        grupo = "contabilidad"
-                        break
-                    case 2:
-                        grupo = "finanzas"
-                        break
-                    case 3:
-                        grupo = "tecnologia"
-                        break
-                    }*/
-
-                        //env.USER_NAME =  ${params.nombreUser} + ${params.apellidoUser}
-                        echo "XDDDDDDDDDDDDDDDD"
-
-                     //   sudo useradd -p env.contra -g $grupo $nombreUser
-
-                 }
-            }
-        }
 
         stage('Crear password temporal') {
             steps {
                 script{
-                // Aquí colocarías los comandos de construcción de tu proyecto
-                // Por ejemplo:
-                // sh 'mvn clean install'
                 //sudo passwd -e params.nombreUser
+                //   sudo useradd -p env.contra -g $grupo $nombreUser
                 def contra = "Contraseni4t3mp0rAl"
-                echo " Muestro user: ${env.USER_NAME}! Muestro Contra: ${contra}! Muestro grupo: ${params.grupo}! " 
+                echo " Muestro user: ${env.USER_NAME}! Muestro Contra: ${contra}! Muestro grupo: ${params.depto}! " 
                  }  
             }
-        }
-           
-       
+        }                 
     }
-    
- /*   post {
-        success {
-            // Acciones a ejecutar si el pipeline es exitoso
-            echo '¡El pipeline se ejecutó exitosamente!'
-        }
-        failure {
-            // Acciones a ejecutar si el pipeline falla
-            echo '¡El pipeline falló!'
-        }
-    }*/
 }
