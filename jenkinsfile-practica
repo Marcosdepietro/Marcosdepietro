@@ -19,7 +19,7 @@ pipeline {
                 script{
                 //sudo passwd -e params.nombreUser
                 //   sudo useradd -p env.contra -g $grupo $nombreUser
-                def contra = "Contraseni4t3mp0rAl"
+                def contra = sh(script: "openssl rand -base64 12", returnStdout: true).trim()
                 echo " Muestro user: ${env.USER_NAME}! Muestro Contra: ${contra}! Muestro grupo: ${params.depto}! " 
                  }  
             }
