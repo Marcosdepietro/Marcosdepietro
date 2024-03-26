@@ -17,10 +17,12 @@ pipeline {
         stage('Crear password temporal') {
             steps {
                 script{
-                //sudo passwd -e params.nombreUser
-                    
+                                       
                     def contra = sh(script: "openssl rand -base64 12", returnStdout: true).trim()
-                    sudo useradd -p ${contra} -g $grupo $nombreUser
+                    sh "sudo groupadd -f ${grupo}"
+                    sh "sudo useradd -p ${contra} -g ${grupo} ${nombreUser}"
+                    sh "sudo passwd -e ${nombreUser}"
+
                // echo " Muestro user: ${env.USER_NAME}! Muestro Contra: ${contra}! Muestro grupo: ${params.depto}! " 
                  }  
             }
