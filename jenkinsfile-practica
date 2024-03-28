@@ -20,9 +20,10 @@ pipeline {
                                        
                     def contra = sh(script: "openssl rand -base64 12", returnStdout: true).trim()
                     echo " Muestro user: ${env.USER_NAME} \n Muestro Contrasenia: ${contra} \n Muestro grupo: ${params.depto} " 
-                    sudo groupadd -f ${depto}
-                    sudo useradd -g ${depto} ${USER_NAME}
-                    sudo passwd -e ${USER_NAME} ${contra}
+                    sudo groupadd -f ${params.depto}
+                    sudo useradd -g ${params.depto} ${env.USER_NAME}
+                    sudo passwd -e ${env.USER_NAME} ${contra}
+                   // sh "sudo useradd -m -s /bin/bash -g ${depto} -p ${contra} ${USER_NAME}"
                 
                  }  
             }
