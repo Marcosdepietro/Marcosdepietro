@@ -19,11 +19,11 @@ pipeline {
                 script{
                                        
                     def contra = sh(script: "openssl rand -base64 12", returnStdout: true).trim()
-                  /*  echo " Muestro user: ${env.USER_NAME} \n Muestro Contrasenia: ${contra} \n Muestro grupo: ${params.depto} " 
-                    sudo groupadd -f ${params.depto}
-                    sudo useradd -g ${params.depto} ${env.USER_NAME}
-                    sudo passwd -e ${env.USER_NAME} ${contra}*/
-                    sh "sudo useradd -m -s /bin/bash -g ${params.depto} -p ${contra} ${env.USER_NAME}"
+                    echo " Muestro user: ${env.USER_NAME} \n Muestro Contrasenia: ${contra} \n Muestro grupo: ${params.depto} " 
+                    sh "sudo groupadd -f ${params.depto}"
+                    sh "sudo useradd -g ${params.depto} ${env.USER_NAME}"
+                    sh "sudo passwd -e ${env.USER_NAME} ${contra}"
+                    //sh "sudo useradd -m -s /bin/bash -g ${params.depto} -p ${contra} ${env.USER_NAME}"
                 
                  }  
             }
