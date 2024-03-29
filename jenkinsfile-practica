@@ -22,7 +22,8 @@ pipeline {
                     echo " Muestro user: ${env.USER_NAME} \n Muestro Contrasenia: ${contra} \n Muestro grupo: ${params.depto} " 
                     sh "sudo groupadd -f ${params.depto}"
                     sh "sudo useradd -g ${params.depto} ${env.USER_NAME}"
-                    sh "sudo passwd -e ${env.USER_NAME} ${contra}"
+                    echo "${env.USER_NAME}:${contra}" | sudo chpasswd
+                    sh "sudo passwd -e ${env.USER_NAME}"
                     //sh "sudo useradd -m -s /bin/bash -g ${params.depto} -p ${contra} ${env.USER_NAME}"
                 
                  }  
