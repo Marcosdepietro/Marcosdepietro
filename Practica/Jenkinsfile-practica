@@ -1,1 +1,23 @@
 
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'name', defaultValue: '', description: 'Ingrese un nombre: ')
+        string(name: 'age', defaultValue: '', description: 'Ingrese su edad: ')
+    }
+
+    stages {
+
+        stage('Input') {
+            steps {
+                script{
+
+                    echo "Hola, ${params.name}! Tienes ${params.age} años."
+
+                
+                 }  
+            }
+        }                 
+    }
+}
