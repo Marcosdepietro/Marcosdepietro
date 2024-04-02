@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     // Descargar el archivo de log usando curl
-                    sh 'curl -o logfile.log https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/apache_logs/apache_logs'
+                    sh 'curl -O https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/apache_logs/apache_logs'
                 }
             }
         }
