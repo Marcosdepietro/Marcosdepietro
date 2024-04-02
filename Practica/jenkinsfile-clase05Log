@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Descargar archivo de log') {
+            steps {
+                script {
+                    // Descargar el archivo de log usando curl
+                    sh 'curl -o logfile.log https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/apache_logs/apache_logs'
+                }
+            }
+        }
+
+        stage('Contar request con nombre logstash y HTTP response code 200') {
+            steps {
+                script {
+                    def logContent = readFile('logfile.log')
+                    def count = (logContent =~ /logstash.*200/).size()
+                    echo "El número de request con nombre logstash y HTTP response code 200 es: ${count}"
+                }
+            }
+        }
+    }
+}
