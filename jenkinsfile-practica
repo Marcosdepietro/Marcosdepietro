@@ -6,7 +6,7 @@ pipeline {
         string(name: 'apellidoUser', defaultValue: '', description: 'Ingrese el apellido del usuario: ')
         choice(name: 'depto', choices: ['contabilidad', 'finanzas', 'tecnologia'], description: '1-contabilidad 2-finanzas 3-tecnologia')
     }
-    
+
     environment{
 
         USER_NAME = "${params.nombreUser}_${params.apellidoUser}"
@@ -20,13 +20,10 @@ pipeline {
                                        
                     def contra = sh(script: "openssl rand -base64 12", returnStdout: true).trim()
                     echo "Muestro user: ${env.USER_NAME} \n Muestro Contrasenia: ${contra} \n Muestro grupo: ${params.depto} " 
-                    sh "groupadd -f ${params.depto}"
-                    sh "useradd -g ${params.depto} ${env.USER_NAME}"
+                    sh "sudo groupadd -f ${params.depto}"
+                    sh "sudo useradd -g ${params.depto} ${env.USER_NAME}"
                     echo "${env.USER_NAME}:${contra}" | sudo chpasswd
-                    sh "passwd -e ${env.USER_NAME}"
-                    echo "xd"
-                    //sh "sudo useradd -m -s /bin/bash -g ${params.depto} -p ${contra} ${env.USER_NAME}"
-                
+                    sh "sudo passwd -e ${env.USER_NAME}"              
                  }  
             }
         }                 
