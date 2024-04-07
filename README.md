@@ -1,9 +1,7 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&text=Hello%20World!&height=100&section=header&fontColor=d6ace6)
-### Let's connect and have a chat! 🌟
 - 📫 How to reach me: [LinkedIn](https://www.linkedin.com/in/marcos-angel-decima-de-pietro/)
 ### A litle bit about me:
 - 🌱 I’m currently learning about Robot Process Automation, and DevOps.
-- 👯 I’m looking to collaborate on DevOps tools.
 - 💬 Ask me about RPA, process using Visual Basic Scripts.
 ### Some tools I have used and I'm familiar with:
 
