@@ -1,22 +1,23 @@
+// Resolucion clase practica 5
+def COUNT
 pipeline {
     agent any
-
+    parameters {
+        string(name: 'word', defaultValue: '', description: 'Ingresa la palabra a buscar en el log')
+        choice(name: 'httpCode', choices: ['200','301','404','500' ], description: 'Selecciona la palabra a buscar')
+    }
     stages {
-        stage('Descargar archivo de log') {
-            steps {
-                script {
-                    // Descargar el archivo de log usando curl
-                    sh 'curl -o /var/lib/jenkins/logfile.log https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/apache_logs/apache_logs'
-                }
-            }
+            stage ('Descargar Logs') {
+                steps {
+                    // cambiar la url por la que se desee descargar testing
+                    sh 'curl -o /tmp/logfile.log https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/apache_logs/apache_logs'
+                }   
         }
-
-        stage('Contar request con nombre logstash y HTTP response code 200') {
+        stage ('Contar lineas') {
             steps {
-                script {
-                    def logContent = readFile('logfile.log')
-                    def count = (logContent =~ /logstash.*200/).size()
-                    echo "El número de request con nombre logstash y HTTP response code 200 es: ${count}"
+                script{
+                    COUNT = sh (script: "grep -c '${params.word}.*${params.httpCode}' /tmp/logfile.log", returnStdout: true).trim()
+                    echo "La cantidad de lineas encontradas es: ${COUNT}"
                 }
             }
         }
