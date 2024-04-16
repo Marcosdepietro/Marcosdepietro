@@ -10,7 +10,7 @@ pipeline {
             stage ('Descargar Logs') {
                 steps {
                     // cambiar la url por la que se desee descargar testing
-                    sh 'curl -o /tmp/logfile.log https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/apache_logs/apache_logs'
+                    sh 'sudo curl -o /tmp/logfile.log https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/apache_logs/apache_logs'
                 }   
         }
         stage ('Contar lineas') {
