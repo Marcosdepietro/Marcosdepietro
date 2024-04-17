@@ -10,13 +10,13 @@ pipeline {
             stage ('Descargar Logs') {
                 steps {
                     // cambiar la url por la que se desee descargar testing
-                    sh 'curl -o logfile.log https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/apache_logs/apache_logs'
+                    sh 'curl -o /var/lib/jenkins/logfile.log https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/apache_logs/apache_logs'
                 }   
         }
         stage ('Contar lineas') {
             steps {
                 script{
-                    COUNT = sh (script: "grep -c '${params.word}.*${params.httpCode}' /home/logfile.log", returnStdout: true).trim()
+                    COUNT = sh (script: "grep -c '${params.word}.*${params.httpCode}' /var/lib/jenkins/logfile.log", returnStdout: true).trim()
                     echo "La cantidad de lineas encontradas es: ${COUNT}"
                 }
             }
