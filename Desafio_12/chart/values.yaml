@@ -1,0 +1,35 @@
+replicaCount: 1
+
+image:
+  repository: marcosdecimadepietro/desafio11
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 3000
+
+mongodb:
+  enabled: true
+  image: mongo:7.0
+  username: root
+  password: s3cr3t!
+  dbName: app-desafio10
+  servicePort: 27017
+  storage: 100Mi
+
+app:
+  name: educacionit-app
+  port: 3000
+  env:
+    mongoUri: mongodb://db-server:27017
+    mongoUser: root
+    mongoPassword: s3cr3t!
+    mongoDbName: app-desafio10
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
