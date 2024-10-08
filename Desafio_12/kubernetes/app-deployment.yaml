@@ -12,6 +12,7 @@ spec:
   selector:
     matchLabels:
       io.kompose.service: app
+  strategy: {}
   template:
     metadata:
       annotations:
@@ -32,9 +33,11 @@ spec:
               value: root
             - name: PORT
               value: "3000"
-          image: edgaregonzalez/educacionit-app:v1.0.0
+          image: marcosdecimadepietro/desafio11:latest
           name: educacionit-app
           ports:
             - containerPort: 3000
               protocol: TCP
+          resources: {}
       restartPolicy: Always
+status: {}
