@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.app.name }}
+  labels:
+    app: {{ .Values.app.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.app.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app.name }}
+    spec:
+      containers:
+        - name: {{ .Values.app.name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MONGO_DB_URI
+              value: "{{ .Values.app.env.mongoUri }}"
+            - name: MONGO_DB_USER
+              value: "{{ .Values.app.env.mongoUser }}"
+            - name: MONGO_DB_PASS
+              value: "{{ .Values.app.env.mongoPassword }}"
+            - name: MONGO_DB_NAME
+              value: "{{ .Values.app.env.mongoDbName }}"
