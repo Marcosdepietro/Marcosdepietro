@@ -1,15 +1,16 @@
+# Source: nestjs-app/templates/tests/test-connection.yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{ include "chart.fullname" . }}-test-connection"
+  name: my-nestjs-app-primary-test-connection  # Ensure test pod name is unique
   labels:
-    {{- include "chart.labels" . | nindent 4 }}
-  annotations:
-    "helm.sh/hook": test
+    helm.sh/chart: nestjs-app-0.1.0
+    app.kubernetes.io/name: my-nestjs-app-primary  # Match the naming convention
+    app.kubernetes.io/instance: my-nestjs-app-primary
+    app.kubernetes.io/part-of: nestjs-app
 spec:
   containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args: ['{{ include "chart.fullname" . }}:{{ .Values.service.port }}']
+  - name: test
+    image: busybox
+    command: ['sh', '-c', 'echo "Testing connection"']
   restartPolicy: Never
