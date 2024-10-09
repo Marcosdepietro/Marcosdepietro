@@ -1,0 +1,6 @@
+---
+- name: Verificar que apache este corriendo
+  service:
+    name: apache2
+    state: started
+    enabled: true

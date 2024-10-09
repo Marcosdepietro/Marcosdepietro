@@ -1,0 +1,12 @@
+---
+- name: Configuración y despliegue de Apache
+  hosts: webservers
+  become: true
+  tasks:
+    - include_tasks: tasks/update.yml
+    - include_tasks: tasks/install_apache.yml
+    - include_tasks: tasks/check_apache.yml
+    - include_tasks: tasks/index.yml
+
+  handlers:
+    - include_tasks: handlers/restart.yml

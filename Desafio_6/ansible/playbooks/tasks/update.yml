@@ -1,0 +1,5 @@
+---
+- name: Actualizar el cache de paqutes
+  apt:
+    update_cache: yes
+    upgrade: yes
