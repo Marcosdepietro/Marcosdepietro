@@ -1,3 +1,15 @@
+# Desafio 1
+
+### Objetivo
+Este desafío tiene como objetivo desarrollar un pipeline declarativo en Jenkins que nos permite crear usuarios 
+dentro de un sistema linux
+
+### Escenario
+El área de seguridad cuenta con un equipo que tiene la responsabilidad de gestionar la creación de usuarios y 
+baja de usuarios en los sistemas de la empresa. Debido a que en el último tiempo hay muchos ingresos 
+algunos operadores cometieron algunos errores y debido a esto nos encomendaron generar un job en jenkins 
+que permita generar estos usuarios.
+
 El pipeline de tiene 3 parametros, dos de ellos String (nombre y apellido) y el tercero es un tipo Choice (contabilidad, finanzas, tecnologia).
 
 En el script se utiliza la variable de “environment” USER_NAME, que concatena los parámetros nombre y apellido ingresados previamente,
