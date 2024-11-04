@@ -20,17 +20,21 @@ usuario final deberá cambiar en el primer inicio de sesión.
 3. El operador requiere que pueda obtener la password temporal para copiarla y enviarla por email al usuario 
 final.
 
+### Desarrollo:
 
+El pipeline de tiene 3 parametros, dos de ellos String (nombre y apellido) y el tercero es un tipo Choice (contabilidad, finanzas, tecnologia):
+![image](https://github.com/user-attachments/assets/cfa11997-ede5-4de6-9b30-ecd655931b14)
 
-El pipeline de tiene 3 parametros, dos de ellos String (nombre y apellido) y el tercero es un tipo Choice (contabilidad, finanzas, tecnologia).
 
 En el script se utiliza la variable de “environment” USER_NAME, que concatena los parámetros nombre y apellido ingresados previamente,
-separados por un guion bajo para formar el nombre de usuario final.
+separados por un guion bajo para formar el nombre de usuario final:
+![image](https://github.com/user-attachments/assets/aadc36bd-6a93-44ae-83c1-495e2ef91548)
+
 
 Luego en el stage de “Crear password temporal” se genera la contraseña temporal random.
 
 Se muestra el usuario, la contraseña y el grupo elegido.
-
+def contra = sh(script: "openssl rand -base64 12", returnStdout: true).trim()
 Y se ejecutan los siguientes comandos (todo con permisos de root):
 •	Se crea el grupo (forzosamente) 
 	sh "sudo groupadd -f ${params.depto}"
