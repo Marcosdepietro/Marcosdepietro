@@ -15,10 +15,9 @@ que permita generar estos usuarios.
 1. El operador de seguridad desea que el al momento de crear el usuario se tomen estos datos de entrada:
 | Dato  | Descripción |
 | ------------- |:-------------:|
-| Login      | Es un identificador único que se compone del nombre y el apellido |
-| Nombre y Apellido    | Nombre y Apellido del usuario |
-| Departamento      | Este es el grupo que corresponde al área del usuario. Estos grupos son contabilidad, finanzas, tecnología. |
-
+| Login      | Identificador único que se compone del nombre y el apellido     |
+| Nombre y Apellido      |  Nombre y Apellido del usuario     |
+| Departamento      | Grupo correspondiente al área del usuario. Estos grupos son contabilidad, finanzas, tecnología.     |
 2. Requiere que la automatización generé un password temporal que sea asignado al usuario, que luego el 
 usuario final deberá cambiar en el primer inicio de sesión.
 3. El operador requiere que pueda obtener la password temporal para copiarla y enviarla por email al usuario 
