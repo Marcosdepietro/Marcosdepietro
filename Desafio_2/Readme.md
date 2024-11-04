@@ -25,3 +25,13 @@ README.md.
 
 ### Desarrollo:
 
+
+* Primero se debe instalar ngrok desde https://ngrok.com/ y crear una cuenta
+* Desde una instancia en Ubuntu, clonar el repositorio mediante el comando “git clone 
+https://github.com/edgaregonzalez/nodejs-helloworld-api.git”
+| Dato  | Descripción |
+| ------------- |:-------------:|
+| Login      | Identificador único que se compone del nombre y el apellido     |
+| Nombre y Apellido      |  Nombre y Apellido del usuario     |
+| Departamento      | Grupo correspondiente al área del usuario. Estos grupos son contabilidad, finanzas, tecnología.     |
+* Desde la pagina de ngrok ir a Linux, copiar y pegar el codigo para instalarlo
