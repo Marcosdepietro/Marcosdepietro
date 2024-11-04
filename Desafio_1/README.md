@@ -31,10 +31,12 @@ separados por un guion bajo para formar el nombre de usuario final:
 ![image](https://github.com/user-attachments/assets/aadc36bd-6a93-44ae-83c1-495e2ef91548)
 
 
-Luego en el stage de “Crear password temporal” se genera la contraseña temporal random.
+Luego en el stage de “Crear password temporal” se genera la contraseña temporal random:
+![image](https://github.com/user-attachments/assets/6c701dfd-ead0-4116-9158-5c1f1d5e1046)
 
 Se muestra el usuario, la contraseña y el grupo elegido.
-def contra = sh(script: "openssl rand -base64 12", returnStdout: true).trim()
+![image](https://github.com/user-attachments/assets/137e2538-8e3e-4a52-8d5b-be367ca16b7d)
+
 Y se ejecutan los siguientes comandos (todo con permisos de root):
 •	Se crea el grupo (forzosamente) 
 	sh "sudo groupadd -f ${params.depto}"
