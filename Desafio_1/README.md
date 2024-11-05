@@ -25,32 +25,28 @@ final.
 El pipeline de tiene 3 parametros, dos de ellos String (nombre y apellido) y el tercero es un tipo Choice (contabilidad, finanzas, tecnologia):
 https://github.com/Marcosdepietro/Marcosdepietro/blob/22f8043b67c27ea5abec8beaad945233e1c23a6c/Desafio_1/Jenkinsfile#L4-L8
 
-![image](https://github.com/user-attachments/assets/cfa11997-ede5-4de6-9b30-ecd655931b14)
-
-
 En el script se utiliza la variable de “environment” USER_NAME, que concatena los parámetros nombre y apellido ingresados previamente,
 separados por un guion bajo para formar el nombre de usuario final:
-![image](https://github.com/user-attachments/assets/aadc36bd-6a93-44ae-83c1-495e2ef91548)
-
+https://github.com/Marcosdepietro/Marcosdepietro/blob/91dd60fc4c05cd5f8035ce9cce3c1700d3ac48cb/Desafio_1/Jenkinsfile#L10-L13
 
 Luego en el stage de “Crear password temporal” se genera la contraseña temporal random:
-![image](https://github.com/user-attachments/assets/6c701dfd-ead0-4116-9158-5c1f1d5e1046)
+https://github.com/Marcosdepietro/Marcosdepietro/blob/91dd60fc4c05cd5f8035ce9cce3c1700d3ac48cb/Desafio_1/Jenkinsfile#L21
 
 Se muestra el usuario, la contraseña y el grupo elegido.
-![image](https://github.com/user-attachments/assets/137e2538-8e3e-4a52-8d5b-be367ca16b7d)
+https://github.com/Marcosdepietro/Marcosdepietro/blob/91dd60fc4c05cd5f8035ce9cce3c1700d3ac48cb/Desafio_1/Jenkinsfile#L22
 
 Y se ejecutan los siguientes comandos (todo con permisos de root):
 •	Se crea el grupo (forzosamente) 
-	sh "sudo groupadd -f ${params.depto}"
+https://github.com/Marcosdepietro/Marcosdepietro/blob/91dd60fc4c05cd5f8035ce9cce3c1700d3ac48cb/Desafio_1/Jenkinsfile#L23
 
 •	Se agrega el usuario con su Home
-	sh "sudo useradd -m ${env.USER_NAME}"
+https://github.com/Marcosdepietro/Marcosdepietro/blob/91dd60fc4c05cd5f8035ce9cce3c1700d3ac48cb/Desafio_1/Jenkinsfile#L24
 
 •	Se agrega el usuario al grupo
-	sh "sudo usermod -aG ${params.depto} ${env.USER_NAME}"
+https://github.com/Marcosdepietro/Marcosdepietro/blob/91dd60fc4c05cd5f8035ce9cce3c1700d3ac48cb/Desafio_1/Jenkinsfile#L25
 
 •	Se setea la contraseña previamente generada
-	sh "echo ${env.USER_NAME}:${contra} | sudo chpasswd"
+https://github.com/Marcosdepietro/Marcosdepietro/blob/91dd60fc4c05cd5f8035ce9cce3c1700d3ac48cb/Desafio_1/Jenkinsfile#L26
 
 •	Y por último se configura la contraseña para que sea cambiada en el siguiente inicio de sesión
-	sh "sudo passwd -e ${env.USER_NAME}"
+https://github.com/Marcosdepietro/Marcosdepietro/blob/91dd60fc4c05cd5f8035ce9cce3c1700d3ac48cb/Desafio_1/Jenkinsfile#L27
