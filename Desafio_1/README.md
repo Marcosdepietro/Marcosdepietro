@@ -23,7 +23,7 @@ final.
 ### Desarrollo:
 
 El pipeline de tiene 3 parametros, dos de ellos String (nombre y apellido) y el tercero es un tipo Choice (contabilidad, finanzas, tecnologia):
-https://github.com/Marcosdepietro/Marcosdepietro/blob/36b61ea1ad09b3f509ecbe1b4964305a8a9026b7/Desafio_1/jenkinsfile-Desafio1#L4-L8
+https://github.com/Marcosdepietro/Marcosdepietro/blob/22f8043b67c27ea5abec8beaad945233e1c23a6c/Desafio_1/Jenkinsfile#L4-L8
 
 ![image](https://github.com/user-attachments/assets/cfa11997-ede5-4de6-9b30-ecd655931b14)
 
