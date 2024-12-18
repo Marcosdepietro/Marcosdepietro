@@ -59,7 +59,7 @@ ngrok http http://localhost:808
  ![image](https://github.com/user-attachments/assets/ff26f601-0465-4f90-90fe-98881d2977ce)
 
 ### NodeJs
-*Descargar NodeJs con los siguientes comandos (para Linux utilizando NVM):
+Descargar NodeJs con los siguientes comandos (para Linux utilizando NVM):
 
 installs NVM (Node Version Manager):
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
