@@ -53,5 +53,22 @@ ngrok http http://localhost:808
 
 ### Jenkins
 
+* Instalar el plugin de NodeJS
+* Vincular el repositorio  de GitHub
+* Configurar NodeJS y su respectiva versión en "Tools" (previamente instalarlo en el entorno local como indica el siguiente paso):
+ ![image](https://github.com/user-attachments/assets/ff26f601-0465-4f90-90fe-98881d2977ce)
 
+### NodeJs
+*Descargar NodeJs con los siguientes comandos (para Linux utilizando NVM):
 
+# installs NVM (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# download and install Node.js
+nvm install 20
+
+# verifies the right Node.js version is in the environment
+node -v # should print `v20.13.1`
+
+# verifies the right NPM version is in the environment
+npm -v # should print `10.5.2`
